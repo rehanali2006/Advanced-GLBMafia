@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "cloudinary": "*",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^6.0.0",
     "cookie-parser": "^1.4.7",
@@ -22,11 +23,11 @@
     "joi": "^18.2.1",
     "jsonwebtoken": "^9.0.3",
     "method-override": "^3.0.0",
+    "mongodb": "^7.3.0",
     "mongoose": "^9.6.2",
-    "nodemon": "^3.1.14",
-    "redis": "^6.0.0",
-    "cloudinary": "*",
     "multer": "*",
-    "multer-storage-cloudinary": "*"
+    "multer-storage-cloudinary": "*",
+    "nodemon": "^3.1.14",
+    "redis": "^6.0.0"
   }
 }
