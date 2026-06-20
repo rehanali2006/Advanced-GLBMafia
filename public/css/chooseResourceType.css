@@ -1,0 +1,162 @@
+.resource-container{
+    min-height:100vh;
+    padding:60px 5%;
+    background:linear-gradient(
+        135deg,
+        #f4f7fc,
+        #eef3ff
+    );
+}
+
+.heading-section{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.heading-section h1{
+    font-size:3rem;
+    font-weight:700;
+    color:#1f2937;
+}
+
+.heading-section p{
+    font-size:1.1rem;
+    color:#6b7280;
+}
+
+.resource-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.resource-card{
+    text-decoration:none;
+    background:#fff;
+    border-radius:24px;
+    padding:35px 25px;
+    text-align:center;
+    transition:0.35s;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    color:#111827;
+}
+
+.resource-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 18px 40px rgba(0,0,0,.15);
+}
+
+.icon-wrapper{
+    width:100px;
+    height:100px;
+    margin:auto;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.icon-wrapper i{
+    font-size:3rem;
+}
+
+.resource-card h2{
+    font-size:1.8rem;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.resource-card p{
+    color:#6b7280;
+    margin-bottom:25px;
+}
+
+.explore-btn{
+    display:inline-block;
+    padding:12px 28px;
+    border-radius:30px;
+    font-weight:600;
+    color:white;
+}
+
+/* Notes */
+
+.notes .icon-wrapper{
+    background:#dbeafe;
+}
+
+.notes i{
+    color:#2563eb;
+}
+
+.notes .explore-btn{
+    background:#2563eb;
+}
+
+/* Assignment */
+
+.assignment .icon-wrapper{
+    background:#dcfce7;
+}
+
+.assignment i{
+    color:#16a34a;
+}
+
+.assignment .explore-btn{
+    background:#16a34a;
+}
+
+/* PYQ */
+
+.pyq .icon-wrapper{
+    background:#fef3c7;
+}
+
+.pyq i{
+    color:#d97706;
+}
+
+.pyq .explore-btn{
+    background:#d97706;
+}
+
+/* Lab */
+
+.lab .icon-wrapper{
+    background:#ede9fe;
+}
+
+.lab i{
+    color:#7c3aed;
+}
+
+.lab .explore-btn{
+    background:#7c3aed;
+}
+
+/* Syllabus */
+
+.syllabus .icon-wrapper{
+    background:#fee2e2;
+}
+
+.syllabus i{
+    color:#dc2626;
+}
+
+.syllabus .explore-btn{
+    background:#dc2626;
+}
+
+@media(max-width:768px){
+
+    .heading-section h1{
+        font-size:2.2rem;
+    }
+
+    .resource-card{
+        padding:25px;
+    }
+}

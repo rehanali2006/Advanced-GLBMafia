@@ -1,0 +1,46 @@
+<%layout("/layouts/boilerplate.ejs")%>
+
+<link rel="stylesheet" href="/css/chooseBranch.css">
+
+<div class="container mt-5 pb-5">
+
+  <div class="text-center mb-5">
+    <h2 class="page-heading">🏛️ <%= year %> Year</h2>
+    <p class="page-sub">Select your branch to continue</p>
+  </div>
+
+  <div class="row g-4 justify-content-center">
+
+    <% const branches = [
+      { name: "CSE", label: "Computer Science", icon: "💻" },
+      { name: "CS-AIML", label: "CS AI & ML", icon: "🤖" },
+      { name: "AI-ML", label: "AI & ML", icon: "🤖" },
+      { name: "ECE", label: "Electronics", icon: "📡" },
+      { name: "CS-AI", label: "CS & AI", icon: "🧠" },
+      { name: "IT", label: "Information Tech", icon: "🌐" },
+      { name: "ME", label: "Mechanical Engg", icon: "⚙️" },
+      { name: "CS-DS", label: "CS Data Science", icon: "📊" },
+      { name: "AI-DS", label: "AI & Data Science", icon: "🔬" },
+      { name: "CS-H", label: "CS (Hons)", icon: "🏅" },
+      { name: "EEE", label: "Electrical Engg", icon: "⚡" }
+    ]; %>
+
+    <% branches.forEach(b => { %>
+      <div class="col-6 col-md-4 col-lg-3">
+        <a href="/home/<%= year %>/<%= b.name %>" class="glb-card branch-card">
+          <span class="branch-emoji"><%= b.icon %></span>
+          <p class="branch-name"><%= b.name %></p>
+          <span class="branch-full"><%= b.label %></span>
+        </a>
+      </div>
+    <% }) %>
+
+  </div>
+
+  <div class="text-center mt-5">
+    <a href="/" class="btn btn-outline-secondary">
+      <i class="bi bi-arrow-left me-1"></i>Back
+    </a>
+  </div>
+
+</div>

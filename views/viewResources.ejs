@@ -1,0 +1,146 @@
+<% layout('/layouts/boilerplate') %>
+
+<link rel="stylesheet" href="/css/viewResources.css">
+
+<div class="resources-container">
+
+    <div class="resources-header">
+        <h1>Available Resources</h1>
+        <p>
+            Browse and access study materials uploaded by students
+        </p>
+    </div>
+
+    <% if(resources.length === 0){ %>
+
+        <div class="empty-state">
+
+            <i class="bi bi-folder-x"></i>
+
+            <h2>No Resources Found</h2>
+
+            <p>
+                No resources are available for this category yet.
+            </p>
+
+        </div>
+
+    <% } else { %>
+
+        <div class="resources-grid">
+
+            <% resources.forEach(resource => { %>
+
+                <div class="resource-card">
+
+                    <!-- PDF Preview using Google Docs Viewer -->
+                    <div class="resource-image pdf-thumbnail-wrapper">
+
+                        <iframe
+                            src="https://docs.google.com/viewer?url=<%= encodeURIComponent(resource.file) %>&embedded=true"
+                            class="pdf-thumbnail-frame"
+                            frameborder="0"
+                            scrolling="no"
+                            title="PDF Preview"
+                            loading="lazy"
+                        ></iframe>
+
+                        <div class="pdf-overlay">
+                            <i class="bi bi-file-earmark-pdf-fill"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="resource-content">
+
+                        <h3>
+                            <%= resource.title || "Study Resource" %>
+                        </h3>
+
+                        <div class="resource-meta">
+
+                            <span>
+                                <i class="bi bi-book"></i>
+                                <%= resource.subject %>
+                            </span>
+
+                            <span>
+                                <i class="bi bi-layers"></i>
+                                Unit <%= resource.unit %>
+                            </span>
+
+                            <span>
+                                <i class="bi bi-file-earmark"></i>
+                                <%= resource.type %>
+                            </span>
+
+                            <span>
+                                <i class="bi bi-person"></i>
+                                Owner: <%= resource.owner.username %>
+                            </span>
+
+                            <span>
+                                <i class="bi bi-eye"></i>
+                                Views: <%= resource.views %>
+                            </span>
+
+                        </div>
+
+                        <!-- Opens the dedicated view page with full Google Docs Viewer -->
+                        <a
+                            href="/resource/view/<%= resource._id %>"
+                            class="view-btn"
+                        >
+                            <i class="bi bi-eye-fill me-1"></i>
+                            View Resource
+                        </a>
+
+                    </div>
+
+                </div>
+
+            <% }) %>
+
+        </div>
+
+    <% } %>
+
+</div>
+
+<style>
+.pdf-thumbnail-wrapper {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    background: #f0f0f0;
+    border-radius: 8px 8px 0 0;
+}
+
+.pdf-thumbnail-frame {
+    width: 100%;
+    height: 300px;
+    border: none;
+    transform: scale(0.6);
+    transform-origin: top left;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.pdf-overlay {
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    font-size: 1.4rem;
+    color: #e74c3c;
+    background: rgba(255,255,255,0.85);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+</style>

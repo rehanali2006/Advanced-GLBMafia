@@ -1,0 +1,78 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container d-flex justify-content-center align-items-center mt-5">
+
+    <div 
+        class="card shadow p-4"
+        style="width: 420px; border-radius: 15px;"
+    >
+
+        <h2 class="text-center mb-4">
+            Login
+        </h2>
+
+        <form action="/auth/login" method="POST">
+
+            <!-- EMAIL -->
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    name="email"
+                    class="form-control"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </div>
+
+            <!-- PASSWORD -->
+
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    name="password"
+                    class="form-control"
+                    placeholder="Enter your password"
+                    required
+                >
+
+            </div>
+
+            <!-- LOGIN BUTTON -->
+
+            <button class="btn btn-dark w-100">
+
+                Login
+
+            </button>
+
+        </form>
+
+        <!-- SIGNUP LINK -->
+
+        <div class="text-center mt-3">
+
+            <small>
+                Don't have an account?
+
+                <a href="/signup">
+                    Signup
+                </a>
+            </small>
+
+        </div>
+
+    </div>
+
+</div>

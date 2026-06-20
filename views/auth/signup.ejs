@@ -1,0 +1,99 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container d-flex justify-content-center align-items-center mt-5">
+
+    <div 
+        class="card shadow p-4"
+        style="width: 450px; border-radius: 15px;"
+    >
+
+        <h2 class="text-center mb-4">
+            Signup
+        </h2>
+
+        <form action="/auth/signup" method="POST">
+
+            <!-- USERNAME -->
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    name="username"
+                    class="form-control"
+                    placeholder="Enter username"
+                    required
+                >
+
+            </div>
+
+            <!-- EMAIL -->
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    name="email"
+                    class="form-control"
+                    placeholder="Enter email"
+                    required
+                >
+
+            </div>
+
+            <!-- PASSWORD -->
+
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    name="password"
+                    class="form-control"
+                    placeholder="Enter password"
+                    minlength="6"
+                    required
+                >
+
+            </div>
+
+            <!-- SIGNUP BUTTON -->
+
+            <button class="btn btn-dark w-100">
+
+                Signup
+
+            </button>
+
+        </form>
+
+        <!-- LOGIN LINK -->
+
+        <div class="text-center mt-3">
+
+            <small>
+
+                Already have an account?
+
+                <a href="/login">
+                    Login
+                </a>
+
+            </small>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,163 @@
+<% layout('/layouts/boilerplate') %>
+
+<div class="container mt-5">
+
+    <h2 class="mb-4">Add New Resource</h2>
+
+    <form action="/home/new" method="POST" enctype="multipart/form-data">
+
+        <!-- TYPE -->
+        <div class="mb-3">
+
+            <label class="form-label">Resource Type</label>
+
+            <select name="type" class="form-select" required>
+
+                <option value="">Select Type</option>
+
+                <option value="Notes">Notes</option>
+                <option value="Assignment">Assignment</option>
+                <option value="PYQ">PYQ</option>
+                <option value="Syllabus">Syllabus</option>
+                <option value="Lab Manual">Lab Manual</option>
+
+            </select>
+
+        </div>
+
+        <!-- YEAR -->
+        <div class="mb-3">
+
+            <label class="form-label">Year</label>
+
+            <select name="year" class="form-select" required>
+
+                <option value="">Select Year</option>
+
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+                <option value="4">4th Year</option>
+
+            </select>
+
+        </div>
+
+        <!-- BRANCH -->
+        <div class="mb-3">
+
+            <label class="form-label">Branch</label>
+
+            <select name="branch" class="form-select" required>
+
+                <option value="">Select Branch</option>
+
+                <option value="CSE">CSE</option>
+                <option value="IT">IT</option>
+                <option value="ECE">ECE</option>
+                <option value="ME">ME</option>
+                <option value="EEE">EEE</option>
+
+                <option value="CS-AIML">CS-AIML</option>
+                <option value="CS-H">CS-H</option>
+                <option value="CS-DS">CS-DS</option>
+
+                <option value="AI-ML">AI-ML</option>
+                <option value="AI-DS">AI-DS</option>
+                <option value="CS-AI">CS-AI</option>
+
+            </select>
+
+        </div>
+
+        <!-- SECTION -->
+        <div class="mb-3">
+
+            <label class="form-label">Section</label>
+
+            <input
+                type="text"
+                name="section"
+                class="form-control"
+                placeholder="Enter section (e.g. A)"
+            >
+
+        </div>
+
+        <!-- SUBJECT -->
+        <div class="mb-3">
+
+            <label class="form-label">Subject</label>
+
+            <select name="subject" class="form-select" required>
+
+                <option value="">Select Subject</option>
+
+                <% for(let year in aktuSubjects){ %>
+
+                    <optgroup label="Year <%= year %>">
+
+                        <% for(let subject of aktuSubjects[year]){ %>
+
+                            <option value="<%= subject %>">
+                                <%= subject %>
+                            </option>
+
+                        <% } %>
+
+                    </optgroup>
+
+                <% } %>
+
+            </select>
+
+        </div>
+
+        <!-- UNIT -->
+        <div class="mb-3">
+
+            <label class="form-label">Unit</label>
+
+            <select name="unit" class="form-select" required>
+
+                <option value="">Select Unit</option>
+
+                <option value="1">Unit 1</option>
+                <option value="2">Unit 2</option>
+                <option value="3">Unit 3</option>
+                <option value="4">Unit 4</option>
+                <option value="5">Unit 5</option>
+
+            </select>
+
+        </div>
+
+        <!-- PDF FILE UPLOAD -->
+        <div class="mb-3">
+
+            <label class="form-label">Upload PDF</label>
+
+            <input
+                type="file"
+                name="file"
+                class="form-control"
+                accept="application/pdf,.pdf"
+                required
+            >
+
+            <div class="form-text text-muted">
+                Only PDF files are accepted. Maximum size: 20MB.
+            </div>
+
+        </div>
+
+        <!-- SUBMIT BUTTON -->
+        <button class="btn btn-primary" type="submit">
+
+            Upload Resource
+
+        </button>
+
+    </form>
+
+</div>

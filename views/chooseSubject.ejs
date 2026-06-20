@@ -1,0 +1,43 @@
+<% layout('/layouts/boilerplate') %>
+
+<link rel="stylesheet" href="/css/chooseSubject.css">
+
+<div class="subject-container">
+
+    <div class="subject-header">
+
+        <h1>Select Subject</h1>
+
+        <p>
+            Choose a subject to explore available
+            <strong><%= type %></strong> resources
+        </p>
+
+    </div>
+
+    <div class="subject-grid">
+
+        <% currentYearSubjects.forEach(subject => { %>
+
+            <a
+                href="/resource/<%= type %>/<%= encodeURIComponent(subject) %>"
+                class="subject-card"
+            >
+
+                <div class="subject-icon">
+                    <i class="bi bi-book-half"></i>
+                </div>
+
+                <h3><%= subject %></h3>
+
+                <span class="view-btn">
+                    View Resources →
+                </span>
+
+            </a>
+
+        <% }) %>
+
+    </div>
+
+</div>

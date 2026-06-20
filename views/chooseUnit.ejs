@@ -1,0 +1,62 @@
+<% layout('/layouts/boilerplate') %>
+
+<link rel="stylesheet" href="/css/chooseUnit.css">
+
+<%
+const units = [1, 2, 3, 4, 5];
+
+const unitIcons = [
+    "bi-1-circle-fill",
+    "bi-2-circle-fill",
+    "bi-3-circle-fill",
+    "bi-4-circle-fill",
+    "bi-5-circle-fill"
+];
+%>
+
+<div class="unit-container">
+
+    <div class="unit-header">
+
+        <h1>Select Unit</h1>
+
+        <p>
+            <strong><%= subject %></strong>
+            <br>
+            Choose a unit to view available resources
+        </p>
+
+    </div>
+
+    <div class="unit-grid">
+
+        <% units.forEach((unit,index) => { %>
+
+            <a
+                href="/resource/<%= type %>/<%= encodeURIComponent(subject) %>/<%= unit %>"
+                class="unit-card"
+            >
+
+                <div class="unit-icon">
+
+                    <i class="bi <%= unitIcons[index] %>"></i>
+
+                </div>
+
+                <h2>Unit <%= unit %></h2>
+
+                <p>
+                    Access all resources for Unit <%= unit %>
+                </p>
+
+                <span class="unit-btn">
+                    Explore →
+                </span>
+
+            </a>
+
+        <% }) %>
+
+    </div>
+
+</div>

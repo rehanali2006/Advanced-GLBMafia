@@ -1,0 +1,79 @@
+<% layout('/layouts/boilerplate') %>
+
+<%
+const resourceTypes = [
+    {
+        name: "Notes",
+        icon: "bi-journal-bookmark-fill",
+        color: "notes"
+    },
+    {
+        name: "Assignment",
+        icon: "bi-file-earmark-check-fill",
+        color: "assignment"
+    },
+    {
+        name: "PYQ",
+        icon: "bi-file-earmark-text-fill",
+        color: "pyq"
+    },
+    {
+        name: "Lab Manual",
+        icon: "bi-book-fill",
+        color: "lab"
+    },
+    {
+        name: "Syllabus",
+        icon: "bi-card-checklist",
+        color: "syllabus"
+    }
+];
+%>
+
+<link rel="stylesheet" href="/css/chooseResourceType.css">
+
+<div class="resource-container">
+
+    <div class="heading-section">
+
+        <h1>Select Resource Type</h1>
+
+        <p>
+            <%= year %> Year • <%= branch %>
+        </p>
+
+    </div>
+
+    <div class="resource-grid">
+
+        <% resourceTypes.forEach(type => { %>
+
+            <a
+                href="/home/<%= year %>/<%= branch %>/<%= type.name %>"
+                class="resource-card <%= type.color %>"
+            >
+
+                <div class="icon-wrapper">
+
+                    <i class="bi <%= type.icon %>"></i>
+
+                </div>
+
+                <h2><%= type.name %></h2>
+
+                <p>
+                    Explore all available
+                    <%= type.name %> resources
+                </p>
+
+                <span class="explore-btn">
+                    Explore →
+                </span>
+
+            </a>
+
+        <% }) %>
+
+    </div>
+
+</div>
