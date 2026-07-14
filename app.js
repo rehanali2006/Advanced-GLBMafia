@@ -104,12 +104,18 @@ app.use((req,res,next)=>{
     next(new ExpressError(404,"Page Not Found"));
 });
 
+// Fixed: render error.ejs instead of sending plain text
 app.use((err, req, res, next) => {
   const { status = 500, message = "Something went wrong" } = err;
-  res.status(status).send(message);
+  res.status(status).render("error.ejs",{status,message});
 });
 
 
-app.listen(8000,()=>{
+// http server + socket.io
+const http=require("http");
+const {initSocket}=require("./socket.js");
+const server=http.createServer(app);
+initSocket(server);
+server.listen(8000,()=>{
     console.log("app listening to port 8000");
-})
+});

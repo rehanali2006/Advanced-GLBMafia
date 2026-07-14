@@ -23,6 +23,36 @@
                 No resources are available for this category yet.
             </p>
 
+            <% if(currentUser){ %>
+
+                <%
+                    // subject is already decoded plain text at this point
+                    // encodeURIComponent it for the form action URL
+                    const notifyAction = "/resource/notify/"
+                        + encodeURIComponent(type) + "/"
+                        + encodeURIComponent(subject) + "/"
+                        + encodeURIComponent(unit);
+                %>
+
+                <form action="<%= notifyAction %>" method="POST" class="notify-form mt-3">
+                    <!-- year and branch are not in scope here; controller accepts defaults -->
+                    <input type="hidden" name="year" value="1">
+                    <input type="hidden" name="branch" value="CSE">
+                    <button type="submit" class="btn btn-notify">
+                        <i class="bi bi-bell me-2"></i>
+                        Notify Me When Available
+                    </button>
+                </form>
+
+            <% } else { %>
+
+                <a href="/auth/login" class="btn btn-notify mt-3">
+                    <i class="bi bi-bell me-2"></i>
+                    Login to get notified
+                </a>
+
+            <% } %>
+
         </div>
 
     <% } else { %>
@@ -86,7 +116,6 @@
 
                         </div>
 
-                        <!-- Opens the dedicated view page with full Google Docs Viewer -->
                         <a
                             href="/resource/view/<%= resource._id %>"
                             class="view-btn"
@@ -142,5 +171,25 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.btn-notify {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.btn-notify:hover {
+    opacity: 0.88;
+    color: white;
 }
 </style>
