@@ -2,7 +2,7 @@
   "name": "revsison",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,6 +28,7 @@
     "multer": "*",
     "multer-storage-cloudinary": "*",
     "nodemon": "^3.1.14",
-    "redis": "^6.0.0"
+    "redis": "^6.0.0",
+    "socket.io": "^4.8.3"
   }
 }
